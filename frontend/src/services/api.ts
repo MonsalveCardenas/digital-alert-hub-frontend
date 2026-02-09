@@ -1,8 +1,11 @@
 import axios from "axios";
 
 // Se crea una instancia de Axios con una configuración base
+// Usa variable de entorno VITE_API_URL o fallback a localhost para desarrollo
+const baseURL = import.meta.env.VITE_API_URL || "http://localhost:4000/api";
+
 const api = axios.create({
-  baseURL: "http://localhost:4000/api", // URL del backend para todas las peticiones
+  baseURL: baseURL,
   headers: {
     "Content-Type": "application/json",
   },
